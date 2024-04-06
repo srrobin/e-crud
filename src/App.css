@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Oxanium:wght@400;600;700&display=swap");
+
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+}
+img{
+    height: 100%;
+    width: 100%;
+    display: block;
+}
+
+:root {
+    --main-color:#28100B;
+    --color:#f9fafa;
+    --btn-bg:#282828;
+    --btn-bg-1:#DFF127;
+    --btn-bg-2:#7fff00;
+    --bg:rgba(220,220,220,0.8);
+    --trans-05: all 0.5s ease;
+
+    --shape-one: #51aae1;
+    --shape-two: #b880db;
+
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  background: var(--bg);
+}
+
+header{
+  width: 100%;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 10px 10%;
+  z-index: 999;
+}
+nav {
+  display: grid;
+  place-content: center;
+  height: 100%;
+}
+nav ul{
+  display: flex;
+  align-items: center;
+  margin-bottom: 0px;
+  padding-left: opx;
+}
+
+nav ul li { 
+  margin-right: 20px;
+}
+nav ul li a{
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 5px 25px;
+  border-radius: 15px;
+  color: var(--main-color);
+  transition: var(--trans-05);
+}
+nav ul li a:hover, .active {
+  color: var(--color);
+  background: var(--main-color);
+}
+button.auth__btn {
+  /* background: var(--main-color); */
+  background:#DFF127;
+  color: var(--btn-bg);
+  padding: 5px 25px;
+  border-radius: 15px;
+  margin: 0px 20px;
+  box-shadow: 0px 8px 48px var(--shape-one);
+  transition: var(--trans-05);
+}
+button.auth__btn:hover {
+transform: translateY(-3px);
+
+}
+
+main {
+  position: relative;
+  padding: 100px 10%;
+  overflow: hidden; 
+}
+.shape__one,
+.shape__two,
+.shape__three,
+.shape__four{
+  position: absolute;
+  border-radius: 50%;
+  filter:blur(90px)
+}
+.shape__one {
+  height: 200px;
+  width: 200px;
+  background: var(--shape-one);
+  top: -2rem;
+  left: -2rem;
+}
+.shape__two {
+  height: 200px;
+  width: 200px;
+  background: var(--shape-two);
+  top: -2rem;
+  right: -2rem;
+}
+/* .shape__three{
+  height: 200px;
+  width: 200px;
+  background: var(--shape-one);
+}
+.shape__four{
+  height: 200px;
+  width: 200px;
+  background: var(--shape-two);
+} */
+.header__bg{
+  background: var(--main-color);
+}
+.btn__bg{
+  background: var(--btn-bg);
+}
+.title__color{
+  color: var(--color);
+}
+
+/* tootip bg css--------------------------------- */
+
+.tooltip-inner {
+  background-color: #2f4fff;
+  box-shadow: 0px 0px 4px black;
+  opacity: 1 !important;
+}
+.tooltip.bs-tooltip-right .tooltip-arrow::before {
+  border-right-color: #2f4fff !important;
+}
+.tooltip.bs-tooltip-left .tooltip-arrow::before {
+  border-left-color: #2f4fff !important;
+}
+.tooltip.bs-tooltip-bottom .tooltip-arrow::before {
+  border-bottom-color: #2f4fff !important;
+}
+.tooltip.bs-tooltip-top .tooltip-arrow::before {
+  border-top-color: #2f4fff !important;
+}
+/* tootip bg css----------------------------end----- */
+
+.lang__btn,.mode__btn {
+  font-size: 22px;
+  background:#DFF127;
+  padding: 0px 8px;
+  border-radius: 8px;
+  color: var(--btn-bg);
+  margin-left: 10px;
+}
+
+.pagination > li >a{
+  color: var(--main-color);
+}
+.pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover 
+{ background-color: var(--main-color); 
+  border-color: var(--color); 
+}
+
+.table__img{
+  height: 40px;
+  width: 40px;
+}
+
+
+.signin__area {
+  padding-top: 80px;
+  display: grid;
+  place-content: center;
+}
+.form__area {
+  width: 320px;
+  background: #282828;
+  padding: 20px;
+  border-radius: 7px;
+}
+.form__area form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.form__area input {
+  margin-bottom: 15px;
+  height: 35px;
+  border-radius: 7px;
+  padding: 17px;
+  font-size: 16px;
+}
+.signin__area h2 {
+  font-family: 'Monoton', sans-serif;
+  font-weight: 400;
+  font-size: 25px;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+  text-align: center;
+  word-spacing: 10px;
+}
+.form__area .type__3 {
+  height: 35px;
+  border-radius: 7px;
+  background: var(--btn-bg-1);
+  font-size: 18px;
+  margin-bottom: 10px;
+  transition: all 0.5s ease;
+}
+.form__area .type__4 {
+  height: 35px;
+  border-radius: 7px;
+  font-size: 18px;
+  margin-bottom: 10px;
+  transition: all 0.5s ease;
+}
+.form__area button:hover {
+  cursor: pointer;
+  transform: translateY(-3px);
+}
+.form__area small {
+  margin-bottom: 10px;
+  text-align: end;
+  text-decoration: underline;
+  color: darkseagreen;
+  font-size: 16px;
+}
+.form__area label {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #7d7474;
+}
+.link__1 {
+  color: darkseagreen;
+  text-decoration: underline;
+}
+
+.nav__profile {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+.profile__image{
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 20px;
+}

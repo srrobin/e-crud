@@ -1,0 +1,15 @@
+{
+    "heading": "Welcome to Our Business Home Page",
+    "description": {
+      "overview": "The business overview is a component of a business plan that provides a general explanation of your company. By reading this section, the audience learns about your company and its structure, values, mission and offerings. It can also demonstrate what makes your company unique from competitors. This section of the business plan is sometimes called a company description summary.",
+  
+      "details": "Other information you may want to include within your business overview are insights into your company's history and mission statement. The history can help establish your company culture and add some of its personality to the business overview. For example, you may have a unique story about your company's founding or its path thus far. Or, if you are looking to gain financing, including details about your company's positive track record may make you more attractive to investors.",
+       
+      "contact": {
+        "phone":   "123-456-7890",
+        "email":   "info@example.com",
+        "address": "123 Main Street, City, Country"
+      }
+  
+    }
+  }
