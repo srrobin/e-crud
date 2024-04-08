@@ -2,25 +2,29 @@
 // import axios from "axios";
 
 import axios from "axios";
+import AuthUser from "./AuthUser";
 
 const BASE_URL = "https://api.escuelajs.co/api/v1";
 export const AxiosInstance = axios.create({ baseURL: BASE_URL });
+// const { AxiosInstance } = AuthUser();
 
-export const ProfileData = async () => {
-  const res = await AxiosInstance.get("/auth/profile");
+export const GetCategory = async () => {
+  const res = await AxiosInstance.get("/categories");
   return res.data;
 };
-export const GetData = async () => {
+
+export const CreateProduct = async (formData) => {
+  const res = await AxiosInstance.post("/products/", formData);
+  return res.data;
+};
+
+export const GetProducts = async () => {
   const res = await AxiosInstance.get("/products");
   return res.data;
 };
-export const GetCat = async () => {
-  const res = await AxiosInstance.get("/products/categories");
-  return res.data;
-};
-export const GetCatItem = async (category) => {
-  const res = await AxiosInstance.get(`/products/categories/${category}`);
-  console.log(res.data);
+
+export const DelProducts = async (id) => {
+  const res = await AxiosInstance.delete(`/products/${id}`);
   return res.data;
 };
 

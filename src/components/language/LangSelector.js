@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 
 const languages = [
@@ -10,34 +10,36 @@ const languages = [
 
 const LangSelector = () => {
   const { i18n } = useTranslation();
-  const [currentLanguageIndex, setCurrentLanguageIndex] = useState(0);
+  const [lang, setLang] = useState(i18n.language);
 
-  const handleToggleLanguage = () => {
-    const nextIndex = (currentLanguageIndex + 1) % languages.length;
-    setCurrentLanguageIndex(nextIndex);
-    i18n.changeLanguage(languages[nextIndex].code);
+  const handleLang = (e) => {
+    const targetLang = e.target.value;
+    setLang(targetLang);
+    i18n.changeLanguage(targetLang);
   };
 
   useEffect(() => {
     document.body.dir = i18n.dir();
-    console.log("i18n.dir()-------", i18n.dir());
-  }, [i18n, i18n.language]);
+  }, [i18n.language]);
 
   return (
-    <Button 
-      variant="outline-light" 
-      size="sm" 
-      className="lang__btn"
-      onClick={handleToggleLanguage}
+    <Form.Select
+      size="sm"
+      value={lang}
+      onChange={handleLang}
+      className="custom__select"
     >
-      {languages[currentLanguageIndex].lang}
-    </Button>
+      {languages.map((lng) => (
+        <option key={lng.code} value={lng.code}>
+          {lng.lang}
+        </option>
+      ))}
+    </Form.Select>
   );
 };
 
 export default LangSelector;
 
-// import React, { useEffect } from "react";
 // import { Button } from "react-bootstrap";
 // import { useTranslation } from "react-i18next";
 

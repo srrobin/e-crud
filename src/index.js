@@ -6,17 +6,21 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import "./i18n";
 import App from "./App";
 import "./index.css";
+import { ModeProvider } from "./context/ModeProvider";
 
 const queryClient = new QueryClient();
 const container = document.getElementById("root");
 const root = createRoot(container);
 root.render(
-
-  <BrowserRouter>
-    <QueryClientProvider client={queryClient}>
-      <App />
-      <ReactQueryDevtools initialIsOpen={false} />
-    </QueryClientProvider>
-  </BrowserRouter>
+  <Suspense fallback={<h1>Loading . . .</h1>}>
+    <BrowserRouter>
+      <QueryClientProvider client={queryClient}>
+        <ModeProvider>
+          <App />
+          <ReactQueryDevtools initialIsOpen={false} />
+        </ModeProvider>
+      </QueryClientProvider>
+    </BrowserRouter>
+  </Suspense>
 
 );

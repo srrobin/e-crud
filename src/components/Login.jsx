@@ -7,14 +7,12 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setEror] = useState("");
 
-  const { token, setToken, AxiosInstanse } = AuthUser();
-  console.log("🚀 ~ Login ~ token:", token);
+  const { setToken, AxiosInstance } = AuthUser();
   const handleSubmit = (e) => {
     e.preventDefault();
-    AxiosInstanse.post("/auth/login", { email, password })
+    AxiosInstance.post("/auth/login", { email, password })
       .then((res) => {
         setToken(res.data.access_token);
-        console.log("tokn", JSON.parse(JSON.stringify(res.data.access_token)));
       })
       .catch((error) => {
         setEror(error.response.data.message);
@@ -52,9 +50,8 @@ const Login = () => {
             Login
           </button>
           <div className="">
-            Don&lsquo;t have an account ?{" "}
+            Don&lsquo;t have an account ?
             <a href="/register" className="link__1">
-              {" "}
               Sign up
             </a>
           </div>

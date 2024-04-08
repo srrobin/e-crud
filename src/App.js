@@ -10,10 +10,14 @@ import "./App.css";
 import Shape from "./components/Shape";
 import UserNav from "./components/Navbar/UserNav";
 import User from "./components/User";
+import { themeMode } from "./context/ModeProvider";
 
 const App = () => {
+  const { mode } = themeMode();
+  console.log("🚀 ~ App ~ mode:", mode);
+  
   return (
-    <>
+    <div data-theme={mode ? "dark" : "light"} className="wrapper">
       <Navbar />
       <main>
         <Shape />
@@ -27,7 +31,7 @@ const App = () => {
           <Route path="/register" element={<Register />} />
         </Routes>
       </main>
-    </>
+    </div>
   );
 };
 export default App;

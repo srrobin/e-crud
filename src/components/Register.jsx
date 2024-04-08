@@ -10,11 +10,11 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [error, setEror] = useState("");
   const navigate = useNavigate();
-  const { AxiosInstanse } = AuthUser();
+  const { AxiosInstance } = AuthUser();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    AxiosInstanse.post("/users",
+    AxiosInstance.post("/users",
       { name, email, password, avatar: "https://api.lorem.space/image/face?w=640&h=480" })
       .then((res) => {
         navigate("/login");

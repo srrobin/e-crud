@@ -2,10 +2,10 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FaLanguage } from "react-icons/fa";
-import { MdLightMode } from "react-icons/md";
+import { MdLightMode, MdDarkMode } from "react-icons/md";
 import LangSelector from "../language/LangSelector";
 
-const PublicNav = () => {
+const PublicNav = ({ mode, toggleMode }) => {
   return (
     <header>
       <nav>
@@ -27,8 +27,8 @@ const PublicNav = () => {
             <FaLanguage />
           </button> */}
           <LangSelector />
-          <button className="mode__btn" type="button">
-            <MdLightMode />
+          <button onClick={toggleMode} className="mode__btn" type="button">
+            {mode ? <MdDarkMode /> : <MdLightMode /> }
           </button>
         </ul>
       </nav>

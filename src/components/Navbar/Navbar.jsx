@@ -7,33 +7,15 @@ import AuthUser from "../../utils/AuthUser";
 import PublicNav from "./PublicNav";
 import AdminNav from "./AdminNav";
 import UserNav from "./UserNav";
+import { themeMode } from "../../context/ModeProvider";
 
 const Navbar = () => {
-  const [profile, setProfile] = useState(null);
-  const { token, AxiosInstanse, getToken } = AuthUser();
-
-  const fetchProfile = async () => {
-    try {
-      const response = await AxiosInstanse.get("/auth/profile");
-      setProfile(response.data);
-    } catch (error) {
-      console.error("Error fetching profile:", error);
-    }
-  };
-
-  useEffect(() => {
-    fetchProfile();
-  }, []);
+  const { getToken } = AuthUser();
+  const { mode, toggleMode } = themeMode();
 
   if (!getToken()) {
-    return <PublicNav />;
-  } if (getToken() && profile && profile.role === "customer") {
-    return <UserNav profile={profile} />;
-  } if (getToken() && profile && profile.role === "admin") {
-    return <AdminNav profile={profile} />;
-  } 
-  // Handle other cases if needed
-  return null;
+    return <PublicNav mode={mode} toggleMode={toggleMode} />;
+  }
+  return <AdminNav mode={mode} toggleMode={toggleMode} />;
 };
-
 export default Navbar; 

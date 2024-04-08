@@ -2,11 +2,11 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FaLanguage } from "react-icons/fa";
-import { MdLightMode } from "react-icons/md";
+import { MdDarkMode, MdLightMode } from "react-icons/md";
 import AuthUser from "../../utils/AuthUser";
 import LangSelector from "../language/LangSelector";
 
-const AdminNav = ({ profile }) => {
+const AdminNav = ({ mode, toggleMode }) => {
   const { token, logout } = AuthUser();
   const handleSignOut = () => {
     if (token !== undefined) {
@@ -17,12 +17,12 @@ const AdminNav = ({ profile }) => {
     <header>
       <nav>
         <ul>
-          {profile && 
+          {/* {profile && 
           <div className="nav__profile">
             {profile.name}
             <img src={profile.avatar} alt="Avatar" className="profile__image" />
           </div>
-          }
+          } */}
           <li>
             <NavLink
               to="/"
@@ -46,8 +46,8 @@ const AdminNav = ({ profile }) => {
             <FaLanguage />
           </button> */}
           <LangSelector />
-          <button className="mode__btn" type="button">
-            <MdLightMode />
+          <button onClick={toggleMode} className="mode__btn" type="button">
+            {mode ? <MdDarkMode /> : <MdLightMode /> }
           </button>
         </ul>
       </nav>
