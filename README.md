@@ -28,10 +28,10 @@ The CRUD APP is a React application designed for managing product data. It provi
 
 ## Images
 
-![Image 2](image2.png)
-![Image 3](image3.png)
-![Image 4](image4.png)
-![Image 5](image5.png)
+![Image 2](https://github.com/srrobin/e-crud/blob/main/src/assets/2.png)
+![Image 3](https://github.com/srrobin/e-crud/blob/main/src/assets/3.png)
+![Image 4](https://github.com/srrobin/e-crud/blob/main/src/assets/4.png)
+![Image 5](https://github.com/srrobin/e-crud/blob/main/src/assets/5.png)
 
 ## Contributions
 Contributions to the project are welcome. Please give a star to the repository if you find it useful.
