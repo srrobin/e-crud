@@ -2,7 +2,7 @@
 
 ## Overview
 The CRUD APP is a React application designed for managing product data. It provides functionalities for adding, updating, deleting, and viewing product details. Additionally, the application incorporates various technologies to enhance user experience and streamline development.
-
+![Image 1](https://github.com/srrobin/e-crud/blob/main/src/assets/1.png)
 ## Technologies Used
 1. **React**: The core framework for building the user interface.
 2. **React Bootstrap**: Used for UI components to ensure a responsive design and consistent styling.
@@ -27,7 +27,7 @@ The CRUD APP is a React application designed for managing product data. It provi
 - Export product details or blog posts as PDF documents.
 
 ## Images
-![Image 1](image1.png)
+
 ![Image 2](image2.png)
 ![Image 3](image3.png)
 ![Image 4](image4.png)
