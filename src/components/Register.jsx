@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from "react";
 
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AuthUser from "../utils/AuthUser";
 
 const Register = () => {
@@ -59,6 +59,12 @@ const Register = () => {
           />
              
           <button className="type__3" type="submit">Sign in</button>
+          <div className="">
+            already have an account  ? 
+            <Link to="/login" className="link__1">
+              login
+            </Link>
+          </div>
         </form>
       </div>
     </div>

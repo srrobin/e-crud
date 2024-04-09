@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import AuthUser from "../utils/AuthUser";
 
 const Login = () => {
@@ -45,15 +46,15 @@ const Login = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <small>forgot passwor ?</small>
+          <small>forgot passwor ? </small>
           <button className="type__3" type="submit">
             Login
           </button>
           <div className="">
-            Don&lsquo;t have an account ?
-            <a href="/register" className="link__1">
+            Don&lsquo;t have an account ? 
+            <Link to="/register" className="link__1">
               Sign up
-            </a>
+            </Link>
           </div>
         </form>
       </div>
