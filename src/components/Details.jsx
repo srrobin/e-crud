@@ -1,12 +1,27 @@
 import React from "react";
 import { Button, Col, Container, Modal, Row } from "react-bootstrap";
+import { useQuery, useMutation, keepPreviousData, useQueryClient } from "@tanstack/react-query";
+import { DetailsProducts } from "../utils/Axios";
 
-const Details = ({ show, onHide }) => {
+const Details = ({ show, onHide, id }) => {
+  const { isLoading, isError, error, data } = useQuery({
+    queryKey: ["products", id],
+    queryFn: () => DetailsProducts(id)
+  });
+  console.log("🚀 ~ DetailsPage ~ DetailsPage:", data);
+
+  const handlePdf = () => {
+    const newTab = window.open(`/details/pdf/${id}`, "_blank");
+    newTab.focus();
+    onHide();
+  };
+  
+  if (isLoading) return "Loading...";
+  if (isError) return `An error has occurred: ${error.message}`;
   return (
     <Modal
       show={show}
       onHide={onHide}
-      // className="z-3"
       aria-labelledby="contained-modal-title-vcenter"
     >
       <Modal.Header closeButton>
@@ -17,29 +32,36 @@ const Details = ({ show, onHide }) => {
       <Modal.Body className="grid-example">
         <Container>
           <Row>
-            <Col xs={12} md={8}>
-              .col-xs-12 .col-md-8
+            <Col xs={12} md={6}>
+              {data.category.creationAt}
             </Col>
-            <Col xs={6} md={4}>
-              .col-xs-6 .col-md-4
+            <Col xs={12} md={6}>
+              {data.category.name}
             </Col>
           </Row>
-
           <Row>
-            <Col xs={6} md={4}>
-              .col-xs-6 .col-md-4
+            <Col>
+              <img src={data.images[0].replace(/['"]+/g, "").replace(/^\[|\]$/g, "")} alt="" />
             </Col>
-            <Col xs={6} md={4}>
-              .col-xs-6 .col-md-4
+          </Row>
+          <Row>
+            <Col>
+              {data.title}
             </Col>
-            <Col xs={6} md={4}>
-              .col-xs-6 .col-md-4
+            <Col>
+              {data.price}
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              {data.description}
             </Col>
           </Row>
         </Container>
       </Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" onClick={onHide}>Close</Button>
+        <Button variant="secondary" onClick={handlePdf}> Make Pdf</Button>
       </Modal.Footer>
     </Modal>
   );
