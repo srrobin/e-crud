@@ -38,7 +38,7 @@ const UpdatePage = ({ id, update, setUpdate }) => {
   return (
     <Offcanvas show={update} onHide={handleClose} placement="end" className={mode ? "text-bg-dark" : "text-bg-light"}> 
       <Offcanvas.Header closeButton>
-        <Offcanvas.Title>Add Product</Offcanvas.Title>
+        <Offcanvas.Title>Update Product</Offcanvas.Title>
       </Offcanvas.Header>
       <Offcanvas.Body>
         <CrudForm
